@@ -1,0 +1,797 @@
+@import url('https://fonts.googleapis.com/css2?family=Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+// variables
+$green: #088178;
+$light-green: #cdebbc;
+$gray: #818ea0;
+$light-gray: #cce7d0;
+$white: #fff;
+$light-white: #e3e6f3;
+$black: #222;
+$light-black: #444;
+$red: #ef3636;
+
+$margin: 50px 0;
+$padding: 0 80px;
+
+*{
+    font-family: 'Spartan', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: none;
+    outline: none;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+
+@mixin flex {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+}
+
+
+@mixin btn-simple {
+    font-family: 'Spartan', sans-serif;
+    color: $green;
+    font-size: 18px;
+    background: transparent;
+    font-weight: 700;
+    padding: 15px 55px;
+    cursor: pointer;
+}
+
+@mixin btn {
+    font-family: 'Spartan', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 10px 20px;
+    color: $green;
+    cursor: pointer;
+    border-radius: 5px
+}
+
+
+
+
+
+// navigation css starts here
+.navigation{
+    @include flex();
+    width: 100%;
+    padding: 15px 80px;
+    box-shadow: 0 10px 8px rgba(0, 0, 0, 0.06);
+    background-color: $light-white;
+    position: sticky;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 999;
+
+    .navbar{
+        @include flex();
+
+        .navlist{
+            @include flex();
+
+            li{
+                list-style: none;
+                margin-left: 30px;
+                
+                a{
+                    font-size: 18px;
+                    font-weight: 700;
+                    color: $black;
+                    transition: 0.5s ease;
+                    position: relative;
+
+                    &:hover,
+                    &.active{
+                        color: $green;
+                    }
+
+                    &.active::after,
+                    &:hover::after{
+                        content: '';
+                        width: 50%;
+                        height: 3px;
+                        position: absolute;
+                        bottom: -5px;
+                        left: 0;
+                        background-color: $green;
+                    }
+                }
+            }
+
+            .cancel{
+                display: none;
+            }
+        }
+
+        i{
+            font-size: 18px;
+            margin-left: 30px;
+            cursor: pointer;
+
+            &:hover{
+                color: $green;
+            }
+        }
+
+        .menu{
+            display: none;
+        }
+    }
+}
+
+// navigation css ends here
+
+
+
+// headers css starts here
+.header{
+    background-image: url("../images/hero4.png");
+    height: 100vh;
+    background-position: center;
+    background-size: cover;
+    @include flex();
+    justify-content: flex-start;
+
+
+    .text{
+        padding: $padding;
+        text-align: left;
+
+        h4{
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+        h2{
+            font-size: 40px;
+        }
+
+        h1{
+            color: $green;
+            font-size: 45px;
+        }
+
+        p{
+            font-size: 18px;
+            color: $gray;
+            font-weight: 600;
+            margin: 15px 0;
+        }
+
+        button{
+          @include btn-simple();
+          background-image: url("../images/button.png");
+        }
+    }
+}
+// headers css ends here
+
+
+
+// features css strats here
+.features{
+    @include flex();
+    margin: $margin;
+    padding: $padding;
+
+    .box{
+        @include flex();
+        flex-direction: column;
+        border: 3px solid $light-gray;
+        border-radius: 5px;
+        padding: 20px;
+        margin-top: 20px;
+        max-width: 500px;
+
+        img{
+            width: 100%;
+        }
+
+        button{
+            @include btn();
+            margin-top: 15px;
+            border-radius: 5px;
+        }
+
+        &:nth-child(1){
+            button{
+                background-color: #fddde4;
+            }
+        }
+        &:nth-child(3){
+            button{
+                background-color: #cdebbc;
+            }
+        }
+        &:nth-child(4){
+            button{
+                background-color: #d1e8f2;
+            }
+        }
+        &:nth-child(5){
+            button{
+                background-color: #f6dbf6;
+            }
+        }
+        &:nth-child(6){
+            button{
+                background-color: #fff2e5;
+            }
+        }
+    }
+    
+}
+// features css ends here
+
+
+
+// products css starts here
+.products{
+    text-align: center;
+    padding: $padding;
+    margin: 100px 0;
+
+    h2{
+        font-size: 40px;
+    }
+
+    p{
+        font-size: 14px;
+        color: $gray;
+        font-weight: 500;
+    }
+
+    .container{
+        @include flex();
+
+        .box{
+            max-width: 300px;
+            border-radius: 20px;
+            border: 2px solid $light-gray;
+            overflow: hidden;
+            padding: 10px;
+            margin-top: 40px;
+            box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.06);
+            position: relative;
+
+            img{
+                width: 100%;
+                border-radius: 20px;
+            }
+
+            .text{
+                text-align: left;
+                margin: 10px;
+                position: relative;
+
+                span{
+                    font-size: 1px;
+                    font-weight: 600;
+                    color: $light-gray;
+                }
+
+                h3{
+                    font-size: 16px;
+                    color: $green;
+                }
+
+                .rating{
+                    color: #faec2c;
+                    font-size: 18px;
+                    margin: 10px 0;
+                }
+
+                h4{
+                   color: $green; 
+                   font-size: 20px;
+                }
+
+            }
+
+            a{
+                position: absolute;
+                bottom: 20px;
+                right: 20px;
+
+                i{
+                    color: $green;
+                    background-color: $light-green;
+                    padding: 10px;
+                    border-radius: 50%;
+                    border: 1px solid $light-gray;
+                }
+            }
+
+
+            &:hover{
+                box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.09);
+                transform: scale(1.05)
+            }
+        
+        }
+    }
+    
+}
+// products css ends here
+
+
+
+
+// wrapper css ends here
+.wrapper{
+    @include flex();
+    justify-content: center;
+    flex-direction: column;
+    background-image: url("../images/banner/b2.jpg");
+    background-size: cover;
+    background-position: center;
+    color: $white;
+    height: 40vh;
+
+    h3{
+        font-size: 30px;
+        margin: 15px 0;
+        font-weight: 700;
+
+        span{
+            color: $red;
+        }
+    }
+
+    button{
+        @include btn();
+        color: $black;
+    }
+}
+
+// wrapper css ends here
+
+
+
+// new products css starts here
+.new-products{
+    text-align: center;
+    padding: $padding;
+    margin: 100px 0;
+
+    h2{
+        font-size: 40px;
+    }
+
+    p{
+        font-size: 14px;
+        color: $gray;
+        font-weight: 500;
+    }
+
+    .container{
+        @include flex();
+
+        .box{
+            max-width: 300px;
+            border-radius: 20px;
+            border: 2px solid $light-gray;
+            overflow: hidden;
+            padding: 10px;
+            margin-top: 40px;
+            box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.06);
+            position: relative;
+            
+
+            img{
+                width: 100%;
+                border-radius: 20px;
+            }
+
+            .text{
+                text-align: left;
+                margin-top: 10px;
+
+                span{
+                    font-size: 1px;
+                    font-weight: 600;
+                    color: $light-gray;
+                }
+
+                h3{
+                    font-size: 16px;
+                    color: $green;
+                }
+
+                .rating{
+                    color: #faec2c;
+                    font-size: 18px;
+                    margin: 10px 0;
+                }
+
+                h4{
+                   color: $green; 
+                   font-size: 20px;
+                }
+            }
+
+            a{
+                position: absolute;
+                bottom: 20px;
+                right: 20px;
+
+                i{
+                    color: $green;
+                    background-color: $light-green;
+                    padding: 10px;
+                    border-radius: 50%;
+                    border: 1px solid $light-gray;
+                }
+            }
+
+            &:hover{
+                box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.09);
+                transform: scale(1.05)
+            }
+        
+        }
+    }
+    
+}
+// new products css ends here
+
+
+
+
+// two-box css strats here
+.two-box{
+    @include flex();
+    padding: $padding;
+    margin: $margin;
+
+    .box{
+        @include flex();
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        width: 48%;
+        background-image: url("../images/banner/b17.jpg");
+        background-size: cover;
+        height: 50vh;
+        padding: 30px;
+        color: $white;
+
+        span{
+            font-size: 16px;
+            font-weight: 400;
+
+        }
+
+        h3{
+            font-size: 22px;
+            font-family: 800;
+            margin: 10px 0;
+        }
+
+        p{
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        button{
+            @include btn-simple();
+            border: 1px solid $white;
+            font-size: 12px;
+            color: $white;
+            padding: 10px 15px;
+            margin-top: 10px;
+        }
+    }
+
+    .right{
+        background-image: url("../images/banner/b10.jpg");
+        background-size: cover;
+
+        button{
+            background-color: $green;
+            border: none;
+        }
+    }
+}
+// two-box css ends here
+
+
+
+// three-box css starts here
+.three-box{
+    @include flex();
+    margin: $margin;
+    padding: $padding;
+
+    .box{
+        height: 35vh;
+        width: calc(100% / 3 - 2%);
+        @include flex();
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        padding: 20px;
+       
+
+        &:nth-child(1){
+            background-image: url("../images/banner/b7.jpg");
+        }
+        &:nth-child(2){
+            background-image: url("../images/banner/b4.jpg");
+            background-position: center;
+            background-size: cover;
+        }
+        &:nth-child(3){
+            background-image: url("../images/banner/b18.jpg");
+        }
+
+        h2{
+            font-size: 22px;
+            text-transform: uppercase;
+            color: $white;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        h6{
+            color: $red;
+            font-size: 14px;
+        }
+    }
+}
+// three-box css ends here
+
+
+
+// sign-up css starts here
+.signup{
+    @include flex();
+    background: #041e42 url("../images/banner/b14.png");
+    margin: $margin;
+    padding: $padding;
+    background-position: center;
+    height: 20vh;
+
+    .text{
+        width: 48%;
+        text-align: left;
+
+        h4{
+            font-size: 20px;
+            color: $white;
+        }
+
+        p{
+            font-size: 12px;
+            color: $light-gray;
+            font-weight: 600;
+            margin-top: 10px;
+
+            span{
+                color: yellow;
+            }
+        }
+    }
+
+    .form{
+        @include flex();
+        justify-content: flex-end;
+        width: 48%;
+
+        input{
+            padding: 10px;
+            border-radius: 5px;
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+            margin: 0;
+            font-size: 12px;
+            font-weight: 600;
+            width: 70%
+        }
+
+        button{
+            @include btn();
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+            color: $white;
+            background-color: $green;
+        }
+    }
+    
+}
+// sign-up css ends here
+
+
+
+// footer css starts here
+footer{
+    @include flex();
+    text-align: left;
+    margin: $margin;
+    padding: $padding;
+
+    .contact{
+        h6{
+            font-size: 16px;
+            font-weight: 800;
+            margin: 15px 0;
+        }
+
+        p{
+            color: $light-black;
+            font-size: 12px;
+            font-weight: 600;
+            margin: 5px 0;
+        }
+
+        span{
+            color: $black;
+            font-weight: 800;
+        }
+
+        .follow{
+            margin-top: 20px;
+
+            p{
+                margin-top: 15px 0;
+                font-weight: 800;
+                font-size: 16px;
+            }
+
+            .social{
+                a{
+                    color: $black;
+
+                    i{
+                        margin: 15px 2px;
+                    }
+                }
+                
+            }
+        }
+    }
+
+    .about{
+        @include flex();
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+
+        p{
+            font-size: 14px;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+
+        a{
+            margin: 8px 0;
+            color: $light-black;
+            font-size: 12px;
+            font-weight: 600;
+
+            &:hover{
+                color: $green
+            }
+        }
+    }
+
+    .account{
+        @include flex();
+        flex-direction: column;
+        align-items: flex-start;
+
+        p{
+            font-size: 14px;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+
+        a{
+            margin: 8px 0;
+            color: $light-black;
+            font-size: 12px;
+            font-weight: 600;
+
+            &:hover{
+                color: $green
+            }
+        }
+    }
+
+    .app{
+        @include flex();
+        flex-direction: column;
+        align-items: flex-start;
+
+        p{
+            font-size: 14px;
+            font-weight: 800;
+        }
+        
+        span{
+            font-size: 12px;
+            font-weight: 800;
+            color: $light-black;
+            margin: 20px 0;
+        }
+
+        .images{
+            @include flex();
+
+
+            img{
+                border: 1px solid $green;
+                width: 49%;
+                cursor: pointer;
+            }
+
+        }
+    }
+
+}
+// footer css ends here
+
+
+
+
+// media query for responsive
+@media only screen and (max-width: 790px){
+
+    $margin: 50px 0;
+    $padding: 0 10px;
+
+
+
+    .navigation{
+        .navbar{
+            .navlist{
+                flex-direction: column;
+                position: absolute;
+                top: 0;
+                right: -100%;
+                width: 85%;
+                max-width: 300px;
+                height: 100vh;
+                background-color: $light-white;
+                justify-content: flex-start;
+                align-items: flex-start;
+                padding: 60px 30px;
+                box-shadow: -10px 0 10px rgba(0, 0, 0, 0.06);
+                
+    
+                li{
+                  margin: 20px;
+                }
+    
+                .cancel{
+                    display: inline-block;
+                    position: absolute;
+                    top: 30px;
+                    left: 20px;
+                }
+
+                &.active{
+                    right: 0;
+                }
+            }
+    
+            .menu{
+                display: inline-block;
+            }
+
+        }
+    }
+}
